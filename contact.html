@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Mountain Group</title>
+<meta name="description" content="Get in touch with Mountain Group. Let's talk about your driver routes. We respond to all inquiries within one business day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dark:#080C14;
+  --dark2:#0F1623;
+  --dark3:#1A2233;
+  --white:#FFFFFF;
+  --snow:#F5F7FA;
+  --ice:#EDF0F5;
+  --border:#DDE2EA;
+  --text:#0D1117;
+  --text2:#344054;
+  --text3:#667085;
+  --blue:#1D5FE8;
+  --blue-d:#1549C0;
+  --blue-pale:rgba(29,95,232,.08);
+  --blue-pale2:rgba(29,95,232,.14);
+  --font:'Outfit',system-ui,sans-serif;
+  --max:1240px;
+  --r:10px;
+  --r2:18px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block;object-fit:cover}
+button{cursor:pointer;border:none;background:none;font-family:var(--font)}
+
+[data-r]{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+[data-r].on{opacity:1;transform:none}
+[data-r][data-d="1"]{transition-delay:.08s}
+[data-r][data-d="2"]{transition-delay:.16s}
+[data-r][data-d="3"]{transition-delay:.24s}
+[data-r][data-d="4"]{transition-delay:.32s}
+[data-r][data-d="5"]{transition-delay:.40s}
+[data-r][data-d="6"]{transition-delay:.48s}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 48px}
+.sec{padding:100px 0}
+
+.label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:block}
+.label.wh{color:rgba(255,255,255,.55)}
+.label.dk{color:var(--blue)}
+h1.d{font-size:clamp(3rem,5.5vw,5.25rem);font-weight:800;line-height:1.0;letter-spacing:-.03em;color:var(--white)}
+h3.d{font-size:clamp(1.5rem,2.5vw,2.125rem);font-weight:800;line-height:1.12;letter-spacing:-.02em;color:var(--text)}
+.lead{font-size:1.125rem;line-height:1.75;color:rgba(255,255,255,.65)}
+.body{font-size:.9375rem;line-height:1.78;color:var(--text2)}
+
+#nav{position:fixed;top:0;left:0;right:0;z-index:500;transition:background .3s,box-shadow .3s;background:linear-gradient(to bottom,rgba(8,12,20,.72) 0%,transparent 100%)}
+#nav.scrolled{background:rgba(8,12,20,.96)!important;backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+#nav.light{background:rgba(255,255,255,.97)!important;backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border)}
+.nav-wrap{max-width:1400px;margin:0 auto;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.nav-logo svg{flex-shrink:0;color:var(--white);transition:color .2s}
+#nav.light .nav-logo svg{color:var(--text)}
+.foot-name svg{color:var(--white)}
+.logo-name{font-size:1.0625rem;font-weight:800;letter-spacing:-.02em;color:var(--white);transition:.2s}
+#nav.light .logo-name{color:var(--text)}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links button{font-size:.825rem;font-weight:600;color:rgba(255,255,255,.65);padding:8px 13px;border-radius:8px;transition:.15s;font-family:var(--font)}
+.nav-links button:hover{color:var(--white);background:rgba(255,255,255,.09)}
+.nav-links button.on{color:var(--white)}
+#nav.light .nav-links button{color:var(--text3)}
+#nav.light .nav-links button:hover{color:var(--text);background:var(--snow)}
+#nav.light .nav-links button.on{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-tel{font-size:.8125rem;font-weight:600;color:rgba(255,255,255,.45);transition:.15s}
+.nav-tel:hover{color:var(--white)}
+#nav.light .nav-tel{color:var(--text3)}
+#nav.light .nav-tel:hover{color:var(--text)}
+.nav-cta{background:var(--blue);color:var(--white);font-weight:700;font-size:.8125rem;padding:9px 20px;border-radius:8px;transition:.15s;white-space:nowrap;font-family:var(--font)}
+.nav-cta:hover{background:var(--blue-d);transform:translateY(-1px)}
+.ham{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer}
+.ham span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:.25s}
+.ham span:nth-child(2){width:15px}
+#nav.light .ham span{background:var(--text)}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.ham.open span:nth-child(2){opacity:0;transform:translateX(8px)}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+.drawer{position:fixed;inset:0;z-index:499;pointer-events:none}
+.drawer-bg{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;transition:opacity .3s;backdrop-filter:blur(4px)}
+.drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(300px,88vw);background:var(--dark);transform:translateX(100%);transition:transform .35s cubic-bezier(.25,.46,.45,.94);padding:80px 24px 40px;display:flex;flex-direction:column;gap:4px}
+.drawer.open{pointer-events:all}
+.drawer.open .drawer-bg{opacity:1}
+.drawer.open .drawer-panel{transform:translateX(0)}
+.d-link{text-align:left;padding:13px 16px;font-size:.9375rem;font-weight:600;color:rgba(255,255,255,.7);border-radius:8px;width:100%;display:block;font-family:var(--font);cursor:pointer;transition:.15s;border:none;background:none}
+.d-link:hover{background:rgba(255,255,255,.06);color:var(--white)}
+.d-div{height:1px;background:rgba(255,255,255,.07);margin:8px 0}
+.d-cta{background:var(--blue);color:var(--white);text-align:center;padding:14px;border-radius:8px;font-weight:700;font-size:.9375rem;display:block;margin-top:10px;font-family:var(--font);transition:.15s}
+.d-cta:hover{background:var(--blue-d)}
+
+.page{display:none;padding-top:68px}
+.page.active{display:block}
+
+.contact-grid{max-width:var(--max);margin:0 auto;padding:0 48px;display:grid;grid-template-columns:380px 1fr;gap:72px;margin-top:64px;margin-bottom:96px}
+.ci{display:flex;gap:16px;margin-bottom:28px;align-items:flex-start}
+.ci-icon{width:44px;height:44px;background:var(--snow);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.ci-lbl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:2px}
+.ci-val{font-size:.9375rem;color:var(--text);font-weight:600}
+.form-box{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r2);padding:48px;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-size:.78rem;font-weight:700;color:var(--text)}
+.fg input,.fg select,.fg textarea{padding:12px 15px;border:1.5px solid var(--border);border-radius:var(--r);font-family:var(--font);font-size:.9375rem;color:var(--text);transition:.15s;outline:none;background:var(--white)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,95,232,.1)}
+.fg textarea{min-height:110px;resize:vertical}
+.form-btn{background:var(--blue);color:var(--white);font-weight:800;font-size:.9375rem;padding:15px;border-radius:var(--r);transition:.15s;width:100%;font-family:var(--font)}
+.form-btn:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 28px rgba(29,95,232,.38)}
+
+.pg-hero{position:relative;min-height:54vh;display:flex;align-items:flex-end;background:var(--dark);overflow:hidden}
+.pg-hero-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.32}
+.pg-hero-grad{position:absolute;inset:0;background:linear-gradient(to top,var(--dark) 0%,rgba(8,12,20,.6) 100%)}
+.pg-hero-content{position:relative;z-index:2;padding:64px 48px;max-width:var(--max);margin:0 auto;width:100%}
+
+footer{background:#04080F;color:rgba(255,255,255,.58);padding:64px 0 36px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.05)}
+.foot-brand p{font-size:.875rem;line-height:1.72;max-width:280px;margin-top:12px}
+.foot-name{font-weight:800;font-size:1rem;color:var(--white);display:flex;align-items:center;gap:10px}
+.foot-col h4{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:18px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col li button,.foot-col li a{font-size:.875rem;color:rgba(255,255,255,.62);background:none;border:none;cursor:pointer;font-family:var(--font);transition:.15s;padding:0;text-align:left}
+.foot-col li button:hover,.foot-col li a:hover{color:var(--white)}
+.foot-bottom{padding-top:28px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.foot-legal{font-size:.76rem;line-height:1.65;max-width:660px}
+.foot-links{display:flex;gap:20px;flex-shrink:0}
+.foot-links a{font-size:.76rem;color:rgba(255,255,255,.55);transition:.15s}
+.foot-links a:hover{color:var(--white)}
+
+@media(max-width:1024px){
+  .contact-grid{grid-template-columns:1fr;gap:48px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .wrap{padding:0 20px}.sec{padding:72px 0}
+  .nav-wrap{padding:0 20px}.nav-links,.nav-right{display:none}.ham{display:flex}
+  .contact-grid{padding:0 20px;margin-bottom:72px}
+  .form-box{padding:28px 20px}
+  .form-row{grid-template-columns:1fr}
+  .pg-hero-content{padding:48px 20px}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="mlogo" viewBox="0 0 120 90">
+    <polyline points="14,76 36,14 60,52 84,14 106,76" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</svg>
+
+<nav id="nav">
+  <div class="nav-wrap">
+    <a href="index.html" class="nav-logo">
+      <svg width="36" height="27" viewBox="0 0 120 90"><use href="#mlogo"/></svg>
+      <span class="logo-name">Mountain Group</span>
+    </a>
+    <div class="nav-links">
+      <button onclick="location.href='index.html'" id="nb-home">Home</button>
+      <button onclick="location.href='how-it-works.html'" id="nb-process">How It Works</button>
+      <button onclick="location.href='compliance.html'" id="nb-compliance">Compliance</button>
+      <button onclick="location.href='pricing.html'" id="nb-pricing">Pricing</button>
+      <button onclick="location.href='about.html'" id="nb-about">About</button>
+      <button onclick="location.href='contact.html'" id="nb-contact" class="on">Contact</button>
+      <button onclick="location.href='blog.html'" id="nb-blog">Blog</button>
+    </div>
+    <div class="nav-right">
+      <a class="nav-tel" href="mountain_tips.html">Weekly Tips →</a>
+      <a class="nav-cta" href="https://scheduler.mountainrecruiting.com" target="_blank">Get Started</a>
+    </div>
+    <div class="ham" id="ham" onclick="toggleDrawer()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="drawer" id="drawer">
+  <div class="drawer-bg" onclick="closeDrawer()"></div>
+  <div class="drawer-panel">
+    <a class="d-link" href="index.html">Home</a>
+    <a class="d-link" href="how-it-works.html">How It Works</a>
+    <a class="d-link" href="compliance.html">Compliance</a>
+    <a class="d-link" href="pricing.html">Pricing</a>
+    <a class="d-link" href="about.html">About</a>
+    <a class="d-link" href="contact.html">Contact</a>
+    <a class="d-link" href="blog.html">Blog</a>
+    <div class="d-div"></div>
+    <a class="d-link" href="tel:+19089522733" style="font-size:.875rem;color:rgba(255,255,255,.45)">+1 (908) 952-2733</a>
+    <a class="d-cta" href="https://scheduler.mountainrecruiting.com" target="_blank">Book a Free Consultation</a>
+  </div>
+</div>
+
+<main style="padding-top:68px">
+
+<div class="pg-hero">
+  <div class="pg-hero-img" style="background-image:url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1800&q=85');opacity:.2"></div>
+  <div class="pg-hero-grad"></div>
+  <div class="pg-hero-content">
+    <span class="label wh">Get In Touch</span>
+    <h1 class="d" style="max-width:600px">Let's talk about your routes.</h1>
+    <p class="lead" style="max-width:500px;margin-top:16px">Whether you need one driver or twenty, we're ready to build your pipeline. We respond to all inquiries within one business day.</p>
+  </div>
+</div>
+
+<div class="contact-grid">
+  <div data-r>
+    <h3 class="d" style="font-size:1.5rem;margin-bottom:28px">Reach us directly</h3>
+    <div class="ci"><div class="ci-icon">📞</div><div><div class="ci-lbl">Phone</div><div class="ci-val"><a href="tel:+19089522733">+1 (908) 952-2733</a></div></div></div>
+    <div class="ci"><div class="ci-icon">✉️</div><div><div class="ci-lbl">Email</div><div class="ci-val"><a href="mailto:sales@mountainrecruiting.com">sales@mountainrecruiting.com</a></div></div></div>
+    <div class="ci"><div class="ci-icon">📍</div><div><div class="ci-lbl">Address</div><div class="ci-val">5795 Gibraltar Dr Apt 506<br>Pleasanton, CA 94588</div></div></div>
+    <div style="margin-top:32px;padding:22px 24px;background:var(--snow);border-radius:var(--r2);border:1px solid var(--border)">
+      <span class="label dk" style="margin-bottom:6px">Response Time</span>
+      <p class="body" style="margin-top:4px">We respond within one business day. For urgent staffing needs, call directly — we pick up.</p>
+    </div>
+  </div>
+  <div class="form-box" data-r data-d="2">
+    <h3 style="font-weight:800;font-size:1.125rem;margin-bottom:22px;color:var(--text)">Send us a message</h3>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="form-row">
+        <div class="fg"><label>First Name</label><input type="text" name="first_name" placeholder="Jane"></div>
+        <div class="fg"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith"></div>
+      </div>
+      <div class="fg"><label>Email</label><input type="email" name="email" placeholder="jane@yourcompany.com"></div>
+      <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="+1 (555) 000-0000"></div>
+      <div class="form-row">
+        <div class="fg"><label>Number of Stations</label><select name="stations"><option value="">Select...</option><option>1–3</option><option>4–10</option><option>11–25</option><option>26+</option></select></div>
+        <div class="fg"><label>Service Needed</label><select name="service"><option value="">Select...</option><option>Recruiting</option><option>Payroll</option><option>All Inclusive</option><option>Not sure</option></select></div>
+      </div>
+      <div class="fg"><label>Tell us about your situation</label><textarea name="message" placeholder="Current driver count, urgency, specific requirements..."></textarea></div>
+      <button class="form-btn" onclick="handleSubmit(this)">Send Message</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand"><div class="foot-name"><svg width="28" height="21" viewBox="0 0 120 90"><use href="#mlogo"/></svg> Mountain Group</div><p>Driver recruiting specialists for carriers and contractors. From first contact to day one on the route — FCRA-compliant, transparent, results-driven.</p></div>
+      <div class="foot-col"><h4>Platform</h4><ul><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="compliance.html">Compliance</a></li></ul></div>
+      <div class="foot-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h4>Reach Us</h4><ul><li><a href="tel:+19089522733">+1 (908) 952-2733</a></li><li><a href="mailto:sales@mountainrecruiting.com">sales@mountainrecruiting.com</a></li><li><a href="https://scheduler.mountainrecruiting.com" target="_blank">Book a Strategy Call</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-legal">© 2026 Mountain Group LLC · Not affiliated with, endorsed by, or sponsored by Federal Express Corporation, FedEx Ground, or Amazon.</div>
+      <div class="foot-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+function updateNav() {
+  const nav = document.getElementById('nav');
+  nav.classList.remove('scrolled', 'light');
+  if (window.scrollY > 60) nav.classList.add('scrolled');
+}
+window.addEventListener('scroll', updateNav, {passive: true});
+updateNav();
+
+function toggleDrawer() {
+  document.getElementById('drawer').classList.toggle('open');
+  document.getElementById('ham').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('drawer').classList.contains('open') ? 'hidden' : '';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); revObs.unobserve(e.target); } });
+}, {threshold: .1, rootMargin: '0px 0px -36px 0px'});
+document.querySelectorAll('[data-r]').forEach(el => revObs.observe(el));
+
+async function handleSubmit(btn) {
+  const form = btn.closest('div[style]');
+  const first = form.querySelector('[name="first_name"]').value.trim();
+  const email = form.querySelector('[name="email"]').value.trim();
+  if (!first || !email) { alert('Please fill in your name and email.'); return; }
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  try {
+    const res = await fetch('https://formspree.io/hiring@mountainrecruiting.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        first_name: first,
+        last_name:  form.querySelector('[name="last_name"]').value.trim(),
+        email:      email,
+        phone:      form.querySelector('[name="phone"]').value.trim(),
+        stations:   form.querySelector('[name="stations"]').value,
+        service:    form.querySelector('[name="service"]').value,
+        message:    form.querySelector('[name="message"]').value.trim(),
+        _subject:   'New Contact Form Submission — Mountain Group'
+      })
+    });
+    if (!res.ok) throw new Error();
+    btn.textContent = "Message Sent — We'll be in touch within one business day";
+    btn.style.background = '#16A34A';
+  } catch {
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+    alert('Something went wrong. Please email us at hiring@mountainrecruiting.com');
+  }
+}
+</script>
+</body>
+</html>

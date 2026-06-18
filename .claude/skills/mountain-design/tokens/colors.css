@@ -1,0 +1,78 @@
+/* ============================================================
+   COLORS — Mountain Group
+   Base scale tokens first, then semantic aliases.
+   Sampled from the marketing site + Recruiter Portal screenshots.
+   ============================================================ */
+:root {
+  /* --- Ink / Navy (brand dark, marketing bg + portal chrome) --- */
+  --ink-900: #0a0c15;   /* marketing hero background — near-black navy */
+  --ink-800: #11152a;   /* raised dark surface */
+  --navy-800: #1e2d5a;  /* portal header / table head */
+  --navy-700: #27376a;
+  --navy-600: #324488;
+
+  /* --- Royal Blue (primary brand action) --- */
+  --blue-700: #1442b0;
+  --blue-600: #1d5fe8;  /* primary CTA — "Book a Free Consultation", "+ Add" */
+  --blue-500: #3b78f5;
+  --blue-100: #dbe6fd;  /* tint surface */
+  --blue-50:  #f0f5ff;
+
+  /* --- Indigo + Lavender (logo accents) --- */
+  --indigo-500: #4f53c0; /* "New Blue" logo lockup */
+  --periwinkle-400: #8b9cf7; /* portal avatar */
+  --lavender-400: #b18cff;  /* "New Purple" logo lockup */
+  --lavender-100: #ece2ff;
+
+  /* --- Neutrals (greys, surfaces, borders) --- */
+  --white: #ffffff;
+  --grey-50:  #f6f7fb;  /* portal page background */
+  --grey-100: #eef1f6;
+  --grey-200: #e2e6ef;  /* hairline borders */
+  --grey-300: #cbd2e0;
+  --grey-400: #9aa3b5;  /* muted text on dark / placeholder */
+  --grey-500: #6b7385;
+  --grey-600: #474b4f;  /* marketing body grey */
+  --grey-700: #2c3140;
+
+  /* --- Semantic status (portal pills, ratings) --- */
+  --green-600: #16a34a; --green-100: #dcfce7;  /* PASS */
+  --red-600:   #ee4443; --red-100:   #fdecec;  /* FAIL / destructive */
+  --amber-600: #d29200; --amber-100: #fef3c7;  /* mid rating / warning */
+
+  /* ============================================================
+     SEMANTIC ALIASES — use these in components, not raw scale.
+     ============================================================ */
+  /* Text */
+  --text-strong:   var(--ink-900);
+  --text-body:     var(--grey-700);
+  --text-muted:    var(--grey-500);
+  --text-on-dark:  var(--white);
+  --text-on-dark-muted: var(--grey-400);
+  --text-link:     var(--blue-600);
+  --text-inverse:  var(--white);
+
+  /* Surfaces */
+  --surface-page:    var(--grey-50);
+  --surface-card:    var(--white);
+  --surface-dark:    var(--ink-900);
+  --surface-navy:    var(--navy-800);
+  --surface-sunken:  var(--grey-100);
+  --surface-tint:    var(--blue-50);
+
+  /* Borders */
+  --border-subtle: var(--grey-200);
+  --border-strong: var(--grey-300);
+  --border-dark:   rgba(255,255,255,0.12);
+
+  /* Actions */
+  --action-primary:       var(--blue-600);
+  --action-primary-hover: var(--blue-700);
+  --action-danger:        var(--red-600);
+  --focus-ring:           var(--blue-500);
+
+  /* Status */
+  --status-pass-fg: var(--green-600); --status-pass-bg: var(--green-100);
+  --status-fail-fg: var(--red-600);   --status-fail-bg: var(--red-100);
+  --status-warn-fg: var(--amber-600); --status-warn-bg: var(--amber-100);
+}

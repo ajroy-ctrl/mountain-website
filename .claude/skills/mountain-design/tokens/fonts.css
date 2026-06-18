@@ -1,0 +1,7 @@
+/* Mountain webfonts.
+   SUBSTITUTION NOTE: The real Mountain brand fonts were not supplied. These are
+   close-match free webfonts served from Fontshare:
+     - Clash Display  -> heavy geometric display used in marketing headlines ("We Recruit.")
+     - Satoshi        -> clean grotesk used for body copy + all portal UI
+   Replace with the licensed brand fonts when available (see readme.md › VISUAL FOUNDATIONS). */
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700,900&display=swap');

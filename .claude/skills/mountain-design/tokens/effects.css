@@ -1,0 +1,31 @@
+/* ============================================================
+   EFFECTS — radius, shadow, borders, motion
+   Marketing brand = generous radius, soft. Portal = tighter, flat.
+   ============================================================ */
+:root {
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 6px;     /* portal buttons / inputs / pills */
+  --radius-md: 10px;    /* cards */
+  --radius-lg: 16px;    /* marketing cards / media */
+  --radius-xl: 24px;
+  --radius-pill: 999px; /* badges, status pills, CTA on marketing */
+
+  /* Shadows — cool navy-tinted, never pure black */
+  --shadow-xs: 0 1px 2px rgba(16, 24, 56, 0.06);
+  --shadow-sm: 0 1px 3px rgba(16, 24, 56, 0.08), 0 1px 2px rgba(16, 24, 56, 0.05);
+  --shadow-md: 0 4px 12px rgba(16, 24, 56, 0.10);
+  --shadow-lg: 0 12px 32px rgba(16, 24, 56, 0.14);
+  --shadow-focus: 0 0 0 3px rgba(59, 120, 245, 0.35);  /* --focus-ring @ 35% */
+
+  /* Borders */
+  --border-width: 1px; /* @kind other */
+  --border-hairline: 1px solid var(--border-subtle); /* @kind other */
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1); /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --dur-fast: 120ms; /* @kind other */
+  --dur-base: 180ms; /* @kind other */
+  --dur-slow: 280ms; /* @kind other */
+}

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Mountain Group</title>
+<meta name="description" content="Transparent flat monthly pricing for driver recruiting. No per-hire surprises. Know your recruiting cost before the month begins.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dark:#080C14;
+  --dark2:#0F1623;
+  --dark3:#1A2233;
+  --white:#FFFFFF;
+  --snow:#F5F7FA;
+  --ice:#EDF0F5;
+  --border:#DDE2EA;
+  --text:#0D1117;
+  --text2:#344054;
+  --text3:#667085;
+  --blue:#1D5FE8;
+  --blue-d:#1549C0;
+  --blue-pale:rgba(29,95,232,.08);
+  --blue-pale2:rgba(29,95,232,.14);
+  --font:'Outfit',system-ui,sans-serif;
+  --max:1240px;
+  --r:10px;
+  --r2:18px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block;object-fit:cover}
+button{cursor:pointer;border:none;background:none;font-family:var(--font)}
+
+[data-r]{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+[data-r].on{opacity:1;transform:none}
+[data-r][data-d="1"]{transition-delay:.08s}
+[data-r][data-d="2"]{transition-delay:.16s}
+[data-r][data-d="3"]{transition-delay:.24s}
+[data-r][data-d="4"]{transition-delay:.32s}
+[data-r][data-d="5"]{transition-delay:.40s}
+[data-r][data-d="6"]{transition-delay:.48s}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 48px}
+.sec{padding:100px 0}
+
+.label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:block}
+.label.wh{color:rgba(255,255,255,.55)}
+.label.dk{color:var(--blue)}
+h1.d{font-size:clamp(3rem,5.5vw,5.25rem);font-weight:800;line-height:1.0;letter-spacing:-.03em;color:var(--white)}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9375rem;font-family:var(--font);padding:14px 28px;border-radius:var(--r);transition:all .18s;cursor:pointer;white-space:nowrap}
+.btn-blue{background:var(--blue);color:var(--white)}
+.btn-blue:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 8px 28px rgba(29,95,232,.38)}
+.btn-wh{border:1.5px solid rgba(255,255,255,.28);color:var(--white)}
+.btn-wh:hover{border-color:rgba(255,255,255,.65);background:rgba(255,255,255,.08)}
+
+#nav{position:fixed;top:0;left:0;right:0;z-index:500;transition:background .3s,box-shadow .3s;background:linear-gradient(to bottom,rgba(8,12,20,.72) 0%,transparent 100%)}
+#nav.scrolled{background:rgba(8,12,20,.96)!important;backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+#nav.light{background:rgba(255,255,255,.97)!important;backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border)}
+.nav-wrap{max-width:1400px;margin:0 auto;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.nav-logo svg{flex-shrink:0;color:var(--white);transition:color .2s}
+#nav.light .nav-logo svg{color:var(--text)}
+.logo-name{font-size:1.0625rem;font-weight:800;letter-spacing:-.02em;color:var(--white);transition:.2s}
+#nav.light .logo-name{color:var(--text)}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links button{font-size:.825rem;font-weight:600;color:rgba(255,255,255,.65);padding:8px 13px;border-radius:8px;transition:.15s;font-family:var(--font)}
+.nav-links button:hover{color:var(--white);background:rgba(255,255,255,.09)}
+.nav-links button.on{color:var(--white)}
+#nav.light .nav-links button{color:var(--text3)}
+#nav.light .nav-links button:hover{color:var(--text);background:var(--snow)}
+#nav.light .nav-links button.on{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-tel{font-size:.8125rem;font-weight:600;color:rgba(255,255,255,.45);transition:.15s}
+.nav-tel:hover{color:var(--white)}
+#nav.light .nav-tel{color:var(--text3)}
+#nav.light .nav-tel:hover{color:var(--text)}
+.nav-cta{background:var(--blue);color:var(--white);font-weight:700;font-size:.8125rem;padding:9px 20px;border-radius:8px;transition:.15s;white-space:nowrap;font-family:var(--font)}
+.nav-cta:hover{background:var(--blue-d);transform:translateY(-1px)}
+.ham{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer}
+.ham span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:.25s}
+.ham span:nth-child(2){width:15px}
+#nav.light .ham span{background:var(--text)}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.ham.open span:nth-child(2){opacity:0;transform:translateX(8px)}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+.drawer{position:fixed;inset:0;z-index:499;pointer-events:none}
+.drawer-bg{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;transition:opacity .3s;backdrop-filter:blur(4px)}
+.drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(300px,88vw);background:var(--dark);transform:translateX(100%);transition:transform .35s cubic-bezier(.25,.46,.45,.94);padding:80px 24px 40px;display:flex;flex-direction:column;gap:4px}
+.drawer.open{pointer-events:all}
+.drawer.open .drawer-bg{opacity:1}
+.drawer.open .drawer-panel{transform:translateX(0)}
+.d-link{text-align:left;padding:13px 16px;font-size:.9375rem;font-weight:600;color:rgba(255,255,255,.7);border-radius:8px;width:100%;display:block;font-family:var(--font);cursor:pointer;transition:.15s;border:none;background:none}
+.d-link:hover{background:rgba(255,255,255,.06);color:var(--white)}
+.d-div{height:1px;background:rgba(255,255,255,.07);margin:8px 0}
+.d-cta{background:var(--blue);color:var(--white);text-align:center;padding:14px;border-radius:8px;font-weight:700;font-size:.9375rem;display:block;margin-top:10px;font-family:var(--font);transition:.15s}
+.d-cta:hover{background:var(--blue-d)}
+
+.page{display:none;padding-top:68px}
+.page.active{display:block}
+
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.pcard{border:1.5px solid var(--border);border-radius:var(--r2);padding:44px 36px;position:relative;transition:.22s;background:var(--white);display:flex;flex-direction:column}
+.pcard:hover{border-color:rgba(29,95,232,.4);transform:translateY(-4px);box-shadow:0 20px 60px rgba(29,95,232,.1)}
+.pcard.feat{border-color:var(--blue);background:var(--dark)}
+.feat-pill{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--blue);color:var(--white);font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 18px;border-radius:20px;white-space:nowrap}
+.pcard-plan{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.pcard-price{font-size:3rem;font-weight:900;color:var(--text);line-height:1;margin-bottom:4px;letter-spacing:-.03em}
+.pcard.feat .pcard-price{color:var(--white)}
+.pcard-note{font-size:.8125rem;color:var(--text3);margin-bottom:30px}
+.pcard.feat .pcard-note{color:rgba(255,255,255,.4)}
+.pcard-feats{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:36px;flex:1}
+.pcard-feats li{display:flex;align-items:flex-start;gap:9px;font-size:.875rem;color:var(--text2);line-height:1.4}
+.pcard.feat .pcard-feats li{color:rgba(255,255,255,.68)}
+.pcard-feats li::before{content:'✓';color:var(--blue);font-weight:800;flex-shrink:0}
+.pc-btn{display:block;text-align:center;padding:14px;border-radius:var(--r);font-weight:700;font-size:.9375rem;transition:.15s;font-family:var(--font);margin-top:auto}
+.pc-out{border:1.5px solid var(--border);color:var(--text)}
+.pc-out:hover{background:var(--snow)}
+.pc-blue{background:var(--blue);color:var(--white)}
+.pc-blue:hover{background:var(--blue-d)}
+
+.fcra-box{background:var(--dark);border-radius:var(--r2);padding:48px 52px;margin-top:64px;display:flex;align-items:flex-start;gap:56px}
+.fcra-box h3{font-weight:900;font-size:1.625rem;color:#93B8FF;white-space:nowrap;flex-shrink:0;line-height:1.2}
+.fcra-box p{font-size:.9375rem;color:rgba(255,255,255,.65);line-height:1.8}
+
+.pg-hero{position:relative;min-height:54vh;display:flex;align-items:flex-end;background:var(--dark);overflow:hidden}
+.pg-hero-grad{position:absolute;inset:0;background:linear-gradient(to top,var(--dark) 0%,rgba(8,12,20,.6) 100%)}
+.pg-hero-content{position:relative;z-index:2;padding:64px 48px;max-width:var(--max);margin:0 auto;width:100%}
+
+footer{background:#04080F;color:rgba(255,255,255,.58);padding:64px 0 36px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.05)}
+.foot-brand p{font-size:.875rem;line-height:1.72;max-width:280px;margin-top:12px}
+.foot-name{font-weight:800;font-size:1rem;color:var(--white);display:flex;align-items:center;gap:10px}
+.foot-name svg{color:var(--white)}
+.foot-col h4{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:18px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col li button,.foot-col li a{font-size:.875rem;color:rgba(255,255,255,.62);background:none;border:none;cursor:pointer;font-family:var(--font);transition:.15s;padding:0;text-align:left}
+.foot-col li button:hover,.foot-col li a:hover{color:var(--white)}
+.foot-bottom{padding-top:28px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.foot-legal{font-size:.76rem;line-height:1.65;max-width:660px}
+.foot-links{display:flex;gap:20px;flex-shrink:0}
+.foot-links a{font-size:.76rem;color:rgba(255,255,255,.55);transition:.15s}
+.foot-links a:hover{color:var(--white)}
+
+@media(max-width:1024px){
+  .pricing-grid{grid-template-columns:1fr}
+  .fcra-box{flex-direction:column;gap:24px;padding:36px}
+}
+@media(max-width:768px){
+  .wrap{padding:0 20px}.sec{padding:72px 0}
+  .nav-wrap{padding:0 20px}.nav-links,.nav-right{display:none}.ham{display:flex}
+  .pg-hero-content{padding:48px 20px}
+  .pricing-grid{gap:16px}
+}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="mlogo" viewBox="0 0 120 90">
+    <polyline points="14,76 36,14 60,52 84,14 106,76" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</svg>
+
+<nav id="nav">
+  <div class="nav-wrap">
+    <a href="index.html" class="nav-logo">
+      <svg width="36" height="27" viewBox="0 0 120 90"><use href="#mlogo"/></svg>
+      <span class="logo-name">Mountain Group</span>
+    </a>
+    <div class="nav-links">
+      <button onclick="location.href='index.html'" id="nb-home">Home</button>
+      <button onclick="location.href='how-it-works.html'" id="nb-process">How It Works</button>
+      <button onclick="location.href='compliance.html'" id="nb-compliance">Compliance</button>
+      <button onclick="location.href='pricing.html'" id="nb-pricing" class="on">Pricing</button>
+      <button onclick="location.href='about.html'" id="nb-about">About</button>
+      <button onclick="location.href='contact.html'" id="nb-contact">Contact</button>
+      <button onclick="location.href='blog.html'" id="nb-blog">Blog</button>
+    </div>
+    <div class="nav-right">
+      <a class="nav-tel" href="mountain_tips.html">Weekly Tips →</a>
+      <a class="nav-cta" href="https://scheduler.mountainrecruiting.com" target="_blank">Get Started</a>
+    </div>
+    <div class="ham" id="ham" onclick="toggleDrawer()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="drawer" id="drawer">
+  <div class="drawer-bg" onclick="closeDrawer()"></div>
+  <div class="drawer-panel">
+    <a class="d-link" href="index.html">Home</a>
+    <a class="d-link" href="how-it-works.html">How It Works</a>
+    <a class="d-link" href="compliance.html">Compliance</a>
+    <a class="d-link" href="pricing.html">Pricing</a>
+    <a class="d-link" href="about.html">About</a>
+    <a class="d-link" href="contact.html">Contact</a>
+    <a class="d-link" href="blog.html">Blog</a>
+    <div class="d-div"></div>
+    <a class="d-link" href="tel:+19089522733" style="font-size:.875rem;color:rgba(255,255,255,.45)">+1 (908) 952-2733</a>
+    <a class="d-cta" href="https://scheduler.mountainrecruiting.com" target="_blank">Book a Free Consultation</a>
+  </div>
+</div>
+
+<main style="padding-top:68px">
+
+<div class="pg-hero" style="min-height:44vh;background:var(--snow)">
+  <div class="pg-hero-grad" style="background:none"></div>
+  <div class="pg-hero-content" style="color:var(--text)">
+    <span class="label dk">Pricing</span>
+    <h1 class="d" style="color:var(--text);max-width:600px">Transparent pricing. No hidden fees.</h1>
+    <p style="color:var(--text2);font-size:1.1rem;line-height:1.72;max-width:500px;margin-top:16px">Know exactly what recruiting costs before the month begins. No per-hire surprises.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="pricing-grid">
+      <div class="pcard" data-r data-d="1">
+        <div class="pcard-plan">Payroll</div>
+        <div class="pcard-price" style="font-size:1.5rem;line-height:1.2">Request<br>a Quote</div>
+        <div class="pcard-note">Flat monthly rate · contact us for pricing</div>
+        <ul class="pcard-feats"><li>Weekly payroll processing</li><li>Timesheet management</li><li>Payroll audit support</li><li>Employee payroll inquiries</li></ul>
+        <a class="pc-btn pc-out" href="contact.html">Start Payroll</a>
+      </div>
+      <div class="pcard feat" data-r data-d="2">
+        <div class="feat-pill">Most Popular</div>
+        <div class="pcard-plan">Recruiting</div>
+        <div class="pcard-price" style="font-size:1.5rem;line-height:1.2">Request<br>a Quote</div>
+        <div class="pcard-note">Flat monthly rate · contact us for pricing</div>
+        <ul class="pcard-feats"><li>Custom job descriptions</li><li>All major job board posting</li><li>Phone screening &amp; vetting</li><li>Interview scheduling</li><li>Background check ordering &amp; monitoring</li><li>Drug test &amp; physical ordering</li><li>End-to-end qualification tracking</li><li>Monthly KPI reporting</li></ul>
+        <a class="pc-btn pc-blue" href="https://scheduler.mountainrecruiting.com" target="_blank">Start Recruiting</a>
+      </div>
+      <div class="pcard" data-r data-d="3">
+        <div class="pcard-plan">All Inclusive</div>
+        <div class="pcard-price" style="font-size:1.5rem;line-height:1.2">Request<br>a Quote</div>
+        <div class="pcard-note">Flat monthly rate · contact us for pricing</div>
+        <ul class="pcard-feats"><li>Everything in Recruiting</li><li>Everything in Payroll</li><li>Training coordination</li><li>Employee documentation</li><li>Priority support</li></ul>
+        <a class="pc-btn pc-out" href="contact.html">Start Today</a>
+      </div>
+    </div>
+    <div class="fcra-box" style="margin-top:64px" data-r>
+      <h3>Multi-Station<br>Operators</h3>
+      <div>
+        <p style="color:rgba(255,255,255,.68);font-size:.9375rem;line-height:1.78;margin-bottom:24px">Running multiple stations or routes? Volume arrangements and custom pricing are available. Let's talk about what makes sense for your operation.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-blue" href="contact.html">Email Us</a>
+          <a class="btn btn-wh" href="tel:+19089522733">+1 (908) 952-2733</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-name"><svg width="28" height="21" viewBox="0 0 120 90"><use href="#mlogo"/></svg> Mountain Group</div>
+        <p>Driver recruiting specialists for carriers and contractors. From first contact to day one on the route — FCRA-compliant, transparent, results-driven.</p>
+      </div>
+      <div class="foot-col"><h4>Platform</h4><ul><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="compliance.html">Compliance</a></li></ul></div>
+      <div class="foot-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h4>Reach Us</h4><ul><li><a href="tel:+19089522733">+1 (908) 952-2733</a></li><li><a href="mailto:sales@mountainrecruiting.com">sales@mountainrecruiting.com</a></li><li><a href="https://scheduler.mountainrecruiting.com" target="_blank">Book a Strategy Call</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-legal">© 2026 Mountain Group LLC · Not affiliated with, endorsed by, or sponsored by Federal Express Corporation, FedEx Ground, or Amazon.</div>
+      <div class="foot-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+function updateNav() {
+  document.getElementById('nav').classList.add('light');
+}
+updateNav();
+
+function toggleDrawer() {
+  document.getElementById('drawer').classList.toggle('open');
+  document.getElementById('ham').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('drawer').classList.contains('open') ? 'hidden' : '';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); revObs.unobserve(e.target); } });
+}, {threshold: .1, rootMargin: '0px 0px -36px 0px'});
+document.querySelectorAll('[data-r]').forEach(el => revObs.observe(el));
+</script>
+</body>
+</html>

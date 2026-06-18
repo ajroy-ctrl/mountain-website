@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Weekly Driver Recruiting Tips — Mountain Group</title>
+<meta name="description" content="Sign up for proven tips, tools, and strategies for hiring delivery drivers — delivered straight to your inbox every week by the team at Mountain Group.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#080C14;--dark2:#0F1623;--white:#FFFFFF;--snow:#F5F7FA;
+  --border:#DDE2EA;--text:#0D1117;--text2:#344054;--text3:#667085;
+  --blue:#1D5FE8;--blue-d:#1549C0;--blue-pale:rgba(29,95,232,.08);
+  --font:'Outfit',system-ui,sans-serif;--r:10px;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--snow);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;font-family:var(--font)}
+
+/* NAV */
+nav{background:var(--dark);padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{display:flex;align-items:center;gap:10px;color:var(--white);font-weight:800;font-size:1rem;letter-spacing:-.02em}
+.nav-logo svg{color:var(--white)}
+.nav-cta{background:var(--blue);color:var(--white);font-weight:700;font-size:.8125rem;padding:9px 20px;border-radius:8px;transition:.15s;white-space:nowrap;font-family:var(--font)}
+.nav-cta:hover{background:var(--blue-d)}
+
+/* LAYOUT */
+main{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:72px 24px 80px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:56px 56px;max-width:620px;width:100%;box-shadow:0 4px 32px rgba(0,0,0,.06)}
+
+/* HEADER */
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--blue-pale);color:var(--blue);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:20px;margin-bottom:20px}
+.badge::before{content:'';width:5px;height:5px;background:var(--blue);border-radius:50%}
+h1{font-size:1.875rem;font-weight:800;line-height:1.1;letter-spacing:-.03em;color:var(--text);margin-bottom:14px}
+.sub{font-size:.9375rem;line-height:1.72;color:var(--text3);margin-bottom:40px;border-bottom:1px solid var(--border);padding-bottom:36px}
+
+/* FORM */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+label{font-size:.8125rem;font-weight:600;color:var(--text2)}
+label .req{color:var(--blue);margin-left:2px}
+input[type="text"],input[type="email"]{font-family:var(--font);font-size:.9375rem;color:var(--text);background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:11px 14px;transition:.15s;outline:none;width:100%}
+input[type="text"]:focus,input[type="email"]:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,95,232,.12)}
+
+/* CHECKBOXES */
+.consent-block{background:var(--snow);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:16px}
+.consent-header{display:flex;align-items:center;gap:10px}
+.consent-header input[type="checkbox"]{width:16px;height:16px;flex-shrink:0;accent-color:var(--blue);cursor:pointer}
+.consent-header-title{font-size:.8125rem;font-weight:700;color:var(--text);flex:1;line-height:1.4}
+.consent-toggle{background:none;border:none;cursor:pointer;padding:2px;color:var(--text3);flex-shrink:0;transition:transform .2s;display:flex;align-items:center}
+.consent-toggle.open{transform:rotate(180deg)}
+.consent-body{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:.8125rem;color:var(--text2);line-height:1.65}
+
+/* SUBMIT */
+.submit-btn{width:100%;background:var(--blue);color:var(--white);font-weight:700;font-size:1rem;padding:15px;border-radius:var(--r);transition:.18s;margin-top:8px}
+.submit-btn:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(29,95,232,.32)}
+.fine{font-size:.75rem;color:var(--text3);margin-top:14px;line-height:1.6;text-align:center}
+
+/* SUCCESS */
+.success{display:none;text-align:center;padding:40px 0}
+.success-icon{width:56px;height:56px;background:rgba(22,163,74,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.success-icon svg{stroke:#16a34a;stroke-width:2.5;fill:none;width:26px;height:26px}
+.success h2{font-size:1.375rem;font-weight:800;color:var(--text);margin-bottom:10px}
+.success p{font-size:.9375rem;color:var(--text3);line-height:1.7}
+
+/* FOOTER */
+footer{background:var(--dark);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.foot-copy{font-size:.8125rem;color:rgba(255,255,255,.35)}
+.foot-links{display:flex;gap:20px}
+.foot-links a{font-size:.8125rem;color:rgba(255,255,255,.4);transition:.15s}
+.foot-links a:hover{color:rgba(255,255,255,.75)}
+
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .card{padding:36px 24px}
+  .form-row{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center;padding:20px}
+}
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="mlogo" viewBox="0 0 120 90">
+    <polyline points="14,76 36,14 60,52 84,14 106,76" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</svg>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="28" height="21" viewBox="0 0 120 90"><use href="#mlogo"/></svg>
+    Mountain Group
+  </a>
+  <a class="nav-cta" href="https://scheduler.mountainrecruiting.com/" target="_blank">Book a Free Consultation</a>
+</nav>
+
+<main>
+  <div class="card">
+    <span class="badge">Free Weekly Newsletter</span>
+    <h1>Get Weekly Driver Recruiting Tips</h1>
+    <p class="sub">Sign up for proven tips, tools, and strategies for hiring delivery drivers — delivered straight to your inbox every week by the team at Mountain Group. You can unsubscribe anytime.</p>
+
+    <form id="tipsForm" novalidate>
+      <div class="field">
+        <label>Name <span class="req">*</span></label>
+        <div class="form-row">
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <input type="text" name="first_name" placeholder="First" required>
+            <span style="font-size:.72rem;color:var(--text3);margin-top:2px">First</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <input type="text" name="last_name" placeholder="Last" required>
+            <span style="font-size:.72rem;color:var(--text3);margin-top:2px">Last</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" name="email" placeholder="you@company.com" required>
+      </div>
+
+      <div class="consent-block">
+        <div class="consent-header">
+          <input type="checkbox" id="emailConsent" name="email_consent" checked>
+          <span class="consent-header-title">Receive the latest driver hiring tips in your inbox weekly.</span>
+          <button type="button" class="consent-toggle" onclick="toggleConsent(this)" aria-label="Expand">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+        <div class="consent-body">By entering your email, you agree to receive marketing emails from us.</div>
+      </div>
+
+      <div class="consent-block">
+        <div class="consent-header">
+          <input type="checkbox" id="smsConsent" name="sms_consent" checked>
+          <span class="consent-header-title">I Agree to Receive Text Messages and/or Phone Calls</span>
+          <button type="button" class="consent-toggle" onclick="toggleConsent(this)" aria-label="Expand">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+        <div class="consent-body">By checking this box, you consent to Mountain Recruiting contacting you via SMS and phone calls at the number you provided. This includes receiving marketing messages and calls using an automated system, including pre-recorded or artificial voice messages, even if your number is on a federal, state, or internal Do Not Call list. These communications will relate to recruiting products or services, and your consent is not a condition of purchase. You can opt out of marketing SMS texts by replying STOP or contacting us directly, and opt out of phone calls by contacting us. For more information on how we handle your personal data, please read our <a href="privacy.html" style="color:var(--blue)">Privacy Policy</a>.</div>
+      </div>
+
+      <button type="submit" class="submit-btn">Subscribe — It's Free</button>
+      <p class="fine">No spam. One email per week. Unsubscribe anytime.</p>
+    </form>
+
+    <div class="success" id="successMsg">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>You're in!</h2>
+      <p>Your first recruiting tip lands in your inbox this week.<br>Keep an eye on your spam folder just in case.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="foot-copy">© 2025 Mountain Group LLC. All rights reserved.</span>
+  <div class="foot-links">
+    <a href="mailto:sales@mountainrecruiting.com">Contact</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="https://scheduler.mountainrecruiting.com/" target="_blank">Book a Call</a>
+  </div>
+</footer>
+
+<script>
+function toggleConsent(btn) {
+  const body = btn.closest('.consent-block').querySelector('.consent-body');
+  const isOpen = body.style.display === 'block';
+  body.style.display = isOpen ? 'none' : 'block';
+  btn.classList.toggle('open', !isOpen);
+}
+
+document.getElementById('tipsForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const first = this.first_name.value.trim();
+  const last = this.last_name.value.trim();
+  const email = this.email.value.trim();
+  if (!first || !email) {
+    alert('Please fill in your name and email.');
+    return;
+  }
+  const btn = this.querySelector('.submit-btn');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  try {
+    const res = await fetch('https://formspree.io/hiring@mountainrecruiting.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ first_name: first, last_name: last, email: email, _subject: 'New Weekly Tips Subscriber' })
+    });
+    if (!res.ok) throw new Error();
+    this.style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  } catch {
+    btn.textContent = 'Subscribe — It\'s Free';
+    btn.disabled = false;
+    alert('Something went wrong. Please email us directly at hiring@mountainrecruiting.com');
+  }
+});
+</script>
+</body>
+</html>

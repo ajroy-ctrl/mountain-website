@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Mountain Group</title>
+<meta name="description" content="Mountain Group specializes in one thing: helping carriers and contractors qualify drivers and fill routes, fast. Built by operators, for operators.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dark:#080C14;
+  --dark2:#0F1623;
+  --dark3:#1A2233;
+  --white:#FFFFFF;
+  --snow:#F5F7FA;
+  --ice:#EDF0F5;
+  --border:#DDE2EA;
+  --text:#0D1117;
+  --text2:#344054;
+  --text3:#667085;
+  --blue:#1D5FE8;
+  --blue-d:#1549C0;
+  --blue-pale:rgba(29,95,232,.08);
+  --blue-pale2:rgba(29,95,232,.14);
+  --font:'Outfit',system-ui,sans-serif;
+  --max:1240px;
+  --r:10px;
+  --r2:18px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block;object-fit:cover}
+button{cursor:pointer;border:none;background:none;font-family:var(--font)}
+
+[data-r]{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+[data-r].on{opacity:1;transform:none}
+[data-r][data-d="1"]{transition-delay:.08s}
+[data-r][data-d="2"]{transition-delay:.16s}
+[data-r][data-d="3"]{transition-delay:.24s}
+[data-r][data-d="4"]{transition-delay:.32s}
+[data-r][data-d="5"]{transition-delay:.40s}
+[data-r][data-d="6"]{transition-delay:.48s}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 48px}
+.sec{padding:100px 0}
+
+.label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:block}
+.label.wh{color:rgba(255,255,255,.55)}
+.label.dk{color:var(--blue)}
+h1.d{font-size:clamp(3rem,5.5vw,5.25rem);font-weight:800;line-height:1.0;letter-spacing:-.03em;color:var(--white)}
+h2.d{font-size:clamp(2rem,4vw,3.25rem);font-weight:800;line-height:1.08;letter-spacing:-.025em;color:var(--text)}
+.lead{font-size:1.125rem;line-height:1.75;color:rgba(255,255,255,.65)}
+.body{font-size:.9375rem;line-height:1.78;color:var(--text2)}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9375rem;font-family:var(--font);padding:14px 28px;border-radius:var(--r);transition:all .18s;cursor:pointer;white-space:nowrap}
+.btn-blue{background:var(--blue);color:var(--white)}
+.btn-blue:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 8px 28px rgba(29,95,232,.38)}
+.btn-out{border:1.5px solid var(--border);color:var(--text);background:var(--white)}
+.btn-out:hover{border-color:#aab4c2;background:var(--snow)}
+.btn-sm{font-size:.8125rem;padding:10px 20px}
+
+#nav{position:fixed;top:0;left:0;right:0;z-index:500;transition:background .3s,box-shadow .3s;background:linear-gradient(to bottom,rgba(8,12,20,.72) 0%,transparent 100%)}
+#nav.scrolled{background:rgba(8,12,20,.96)!important;backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+#nav.light{background:rgba(255,255,255,.97)!important;backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border)}
+.nav-wrap{max-width:1400px;margin:0 auto;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.nav-logo svg{flex-shrink:0;color:var(--white);transition:color .2s}
+#nav.light .nav-logo svg{color:var(--text)}
+.logo-name{font-size:1.0625rem;font-weight:800;letter-spacing:-.02em;color:var(--white);transition:.2s}
+#nav.light .logo-name{color:var(--text)}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links button{font-size:.825rem;font-weight:600;color:rgba(255,255,255,.65);padding:8px 13px;border-radius:8px;transition:.15s;font-family:var(--font)}
+.nav-links button:hover{color:var(--white);background:rgba(255,255,255,.09)}
+.nav-links button.on{color:var(--white)}
+#nav.light .nav-links button{color:var(--text3)}
+#nav.light .nav-links button:hover{color:var(--text);background:var(--snow)}
+#nav.light .nav-links button.on{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-tel{font-size:.8125rem;font-weight:600;color:rgba(255,255,255,.45);transition:.15s}
+.nav-tel:hover{color:var(--white)}
+#nav.light .nav-tel{color:var(--text3)}
+#nav.light .nav-tel:hover{color:var(--text)}
+.nav-cta{background:var(--blue);color:var(--white);font-weight:700;font-size:.8125rem;padding:9px 20px;border-radius:8px;transition:.15s;white-space:nowrap;font-family:var(--font)}
+.nav-cta:hover{background:var(--blue-d);transform:translateY(-1px)}
+.ham{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer}
+.ham span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:.25s}
+.ham span:nth-child(2){width:15px}
+#nav.light .ham span{background:var(--text)}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.ham.open span:nth-child(2){opacity:0;transform:translateX(8px)}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+.drawer{position:fixed;inset:0;z-index:499;pointer-events:none}
+.drawer-bg{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;transition:opacity .3s;backdrop-filter:blur(4px)}
+.drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(300px,88vw);background:var(--dark);transform:translateX(100%);transition:transform .35s cubic-bezier(.25,.46,.45,.94);padding:80px 24px 40px;display:flex;flex-direction:column;gap:4px}
+.drawer.open{pointer-events:all}
+.drawer.open .drawer-bg{opacity:1}
+.drawer.open .drawer-panel{transform:translateX(0)}
+.d-link{text-align:left;padding:13px 16px;font-size:.9375rem;font-weight:600;color:rgba(255,255,255,.7);border-radius:8px;width:100%;display:block;font-family:var(--font);cursor:pointer;transition:.15s;border:none;background:none}
+.d-link:hover{background:rgba(255,255,255,.06);color:var(--white)}
+.d-div{height:1px;background:rgba(255,255,255,.07);margin:8px 0}
+.d-cta{background:var(--blue);color:var(--white);text-align:center;padding:14px;border-radius:8px;font-weight:700;font-size:.9375rem;display:block;margin-top:10px;font-family:var(--font);transition:.15s}
+.d-cta:hover{background:var(--blue-d)}
+
+.page{display:none;padding-top:68px}
+.page.active{display:block}
+
+.feat-split{display:grid;grid-template-columns:1fr 1fr;min-height:580px}
+.feat-img{position:relative;overflow:hidden}
+.feat-img img{width:100%;height:100%;min-height:400px;transition:transform 8s ease}
+.feat-split:hover .feat-img img{transform:scale(1.03)}
+.feat-copy{padding:72px 64px;display:flex;flex-direction:column;justify-content:center}
+.feat-copy.bg-white{background:var(--white)}
+.divider-line{width:40px;height:3px;background:var(--blue);border-radius:2px;margin:16px 0 26px}
+
+.faq-wrap{display:grid;grid-template-columns:300px 1fr;gap:80px;margin-top:72px;align-items:start}
+.faq-side h3{font-weight:800;font-size:1.625rem;color:var(--text);line-height:1.2;margin-bottom:14px}
+.faq-side p{font-size:.9375rem;color:var(--text2);line-height:1.7;margin-bottom:28px}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;cursor:pointer;user-select:none}
+.faq-q-text{font-weight:700;font-size:.9375rem;color:var(--text);line-height:1.4;transition:.15s}
+.faq-icon{width:28px;height:28px;border:1.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.25s;color:var(--text3);font-size:1rem;line-height:1}
+.faq-item.open .faq-icon{background:var(--blue);border-color:var(--blue);color:var(--white);transform:rotate(45deg)}
+.faq-item.open .faq-q-text{color:var(--blue)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1),padding .25s}
+.faq-item.open .faq-a{max-height:400px;padding-bottom:18px}
+.faq-a p{font-size:.875rem;color:var(--text2);line-height:1.78}
+
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.val{background:var(--snow);border-radius:var(--r2);padding:36px;border:1px solid var(--ice)}
+.val-icon{font-size:1.75rem;margin-bottom:14px}
+.val-title{font-weight:800;font-size:1rem;color:var(--text);margin-bottom:8px}
+.val-text{font-size:.875rem;color:var(--text2);line-height:1.65}
+
+.pg-hero{position:relative;min-height:54vh;display:flex;align-items:flex-end;background:var(--dark);overflow:hidden}
+.pg-hero-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.32}
+.pg-hero-grad{position:absolute;inset:0;background:linear-gradient(to top,var(--dark) 0%,rgba(8,12,20,.6) 100%)}
+.pg-hero-content{position:relative;z-index:2;padding:64px 48px;max-width:var(--max);margin:0 auto;width:100%}
+
+.cta-sec{position:relative;overflow:hidden;background:var(--dark);padding:100px 0;text-align:center}
+.cta-bg-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.2}
+.cta-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(8,12,20,.3) 0%,var(--dark) 75%)}
+.cta-inner{position:relative;z-index:2}
+.cta-inner h2{font-size:clamp(2rem,4vw,3.25rem);font-weight:900;color:var(--white);margin-bottom:14px;letter-spacing:-.03em}
+.cta-inner p{font-size:1.1rem;color:rgba(255,255,255,.55);max-width:480px;margin:0 auto 36px}
+
+footer{background:#04080F;color:rgba(255,255,255,.58);padding:64px 0 36px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.05)}
+.foot-brand p{font-size:.875rem;line-height:1.72;max-width:280px;margin-top:12px}
+.foot-name{font-weight:800;font-size:1rem;color:var(--white);display:flex;align-items:center;gap:10px}
+.foot-name svg{color:var(--white)}
+.foot-col h4{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:18px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col li button,.foot-col li a{font-size:.875rem;color:rgba(255,255,255,.62);background:none;border:none;cursor:pointer;font-family:var(--font);transition:.15s;padding:0;text-align:left}
+.foot-col li button:hover,.foot-col li a:hover{color:var(--white)}
+.foot-bottom{padding-top:28px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.foot-legal{font-size:.76rem;line-height:1.65;max-width:660px}
+.foot-links{display:flex;gap:20px;flex-shrink:0}
+.foot-links a{font-size:.76rem;color:rgba(255,255,255,.55);transition:.15s}
+.foot-links a:hover{color:var(--white)}
+
+@media(max-width:1024px){
+  .feat-split{grid-template-columns:1fr}
+  .feat-copy{padding:52px 40px}
+  .faq-wrap{grid-template-columns:1fr;gap:40px}
+  .values-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .wrap{padding:0 20px}.sec{padding:72px 0}
+  .nav-wrap{padding:0 20px}.nav-links,.nav-right{display:none}.ham{display:flex}
+  .values-grid{grid-template-columns:1fr}
+  .pg-hero-content{padding:48px 20px}
+}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="mlogo" viewBox="0 0 120 90">
+    <polyline points="14,76 36,14 60,52 84,14 106,76" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</svg>
+
+<nav id="nav">
+  <div class="nav-wrap">
+    <a href="index.html" class="nav-logo">
+      <svg width="36" height="27" viewBox="0 0 120 90"><use href="#mlogo"/></svg>
+      <span class="logo-name">Mountain Group</span>
+    </a>
+    <div class="nav-links">
+      <button onclick="location.href='index.html'" id="nb-home">Home</button>
+      <button onclick="location.href='how-it-works.html'" id="nb-process">How It Works</button>
+      <button onclick="location.href='compliance.html'" id="nb-compliance">Compliance</button>
+      <button onclick="location.href='pricing.html'" id="nb-pricing">Pricing</button>
+      <button onclick="location.href='about.html'" id="nb-about" class="on">About</button>
+      <button onclick="location.href='contact.html'" id="nb-contact">Contact</button>
+      <button onclick="location.href='blog.html'" id="nb-blog">Blog</button>
+    </div>
+    <div class="nav-right">
+      <a class="nav-tel" href="mountain_tips.html">Weekly Tips →</a>
+      <a class="nav-cta" href="https://scheduler.mountainrecruiting.com" target="_blank">Get Started</a>
+    </div>
+    <div class="ham" id="ham" onclick="toggleDrawer()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="drawer" id="drawer">
+  <div class="drawer-bg" onclick="closeDrawer()"></div>
+  <div class="drawer-panel">
+    <a class="d-link" href="index.html">Home</a>
+    <a class="d-link" href="how-it-works.html">How It Works</a>
+    <a class="d-link" href="compliance.html">Compliance</a>
+    <a class="d-link" href="pricing.html">Pricing</a>
+    <a class="d-link" href="about.html">About</a>
+    <a class="d-link" href="contact.html">Contact</a>
+    <a class="d-link" href="blog.html">Blog</a>
+    <div class="d-div"></div>
+    <a class="d-link" href="tel:+19089522733" style="font-size:.875rem;color:rgba(255,255,255,.45)">+1 (908) 952-2733</a>
+    <a class="d-cta" href="https://scheduler.mountainrecruiting.com" target="_blank">Book a Free Consultation</a>
+  </div>
+</div>
+
+<main style="padding-top:68px">
+
+<div class="pg-hero">
+  <div class="pg-hero-img" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1800&q=85');opacity:.3"></div>
+  <div class="pg-hero-grad"></div>
+  <div class="pg-hero-content">
+    <span class="label wh">About Mountain Group</span>
+    <h1 class="d" style="max-width:660px">Built by operators, for operators.</h1>
+    <p class="lead" style="max-width:520px;margin-top:16px">Mountain Group specializes in one thing: helping carriers and contractors qualify drivers and fill routes, fast.</p>
+  </div>
+</div>
+
+<div class="feat-split">
+  <div class="feat-copy bg-white" data-r>
+    <span class="label dk">Our Story</span>
+    <h2 class="d" style="color:var(--text);margin-bottom:14px">Why we built this</h2>
+    <div class="divider-line"></div>
+    <p class="body" style="margin-bottom:14px">Service providers were spending too much time on recruiting and too little on growth. The driver qualification process is detailed, time-sensitive, and compliance-critical — and most operators don't have an HR team built for it.</p>
+    <p class="body" style="margin-bottom:14px">Mountain Group was founded to be that team. We know the compliance requirements, the platform workflows, and the pressure of keeping routes staffed. We handle the pipeline so you can handle the business.</p>
+    <p class="body">Today we serve ISPs across the country, with US leadership and a dedicated team that moves as fast as your routes demand.</p>
+  </div>
+  <div class="feat-img">
+    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=85" alt="Mountain Group team">
+  </div>
+</div>
+
+<section class="sec" style="background:var(--white)" id="about-faq">
+  <div class="wrap">
+    <span class="label dk" data-r>Common Questions</span>
+    <h2 class="d" style="color:var(--text)" data-r data-d="1">Everything you need to know about Mountain Group</h2>
+    <div class="faq-wrap" style="margin-top:56px">
+      <div class="faq-side" data-r>
+        <h3>Still have questions?</h3>
+        <p>We respond to all inquiries within one business day. For urgent needs, call us directly.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:22px">
+          <a class="btn btn-blue btn-sm" href="contact.html">Email Us</a>
+          <a class="btn btn-out btn-sm" href="tel:+19089522733">+1 (908) 952-2733</a>
+        </div>
+      </div>
+      <div class="faq-list" data-r data-d="2">
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Why did Mountain Group build a recruiting firm specifically for logistics service providers?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>Most staffing agencies are generalist. Carriers and contractors needed a recruiting partner who understood their specific compliance requirements, timelines, and the operational pressure of keeping routes staffed. Mountain Group was built exclusively for that purpose — to be the recruiting infrastructure that logistics providers don't have in-house.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Are you affiliated with FedEx or Amazon?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>No. Mountain Group LLC is an independent recruiting services company. We are not affiliated with, endorsed by, approved by, or sponsored by Federal Express Corporation, FedEx Ground, or Amazon. These names are referenced solely to describe the contractors and carriers we serve.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Where is the Mountain Group team based?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>Mountain Group is headquartered in the United States. Our leadership and core team are based here and handle strategy, compliance, and all client relationships. We also operate a back-office support team in India that keeps the recruiting pipeline running around the clock — so your candidates are being worked 24 hours a day, not just during US business hours. All personnel use named accounts with enforced MFA on company-controlled encrypted devices.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long has Mountain Group been operating?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>We have been serving carriers and contractors since our founding, helping hundreds of operators qualify drivers and fill routes across the country. Our team has screened thousands of candidates across multiple states.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you work with Amazon DSPs as well as FedEx contractors?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>Our primary focus and deepest expertise is in FedEx contractor driver qualification. Contact us to discuss your specific operation — we evaluate fit on a case-by-case basis.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do you handle sensitive candidate data?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>Candidate profiles are initiated with only name and contact information. Every candidate enters their own sensitive identifiers — SSN, date of birth — directly into the platform's secure, encrypted portal. Mountain Group personnel never handle, store, or transmit this information. All company devices are fully encrypted and protected with enforced multi-factor authentication.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What states do you recruit in?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>We recruit nationally. We've qualified drivers for service providers across dozens of states. Our sourcing is not geography-limited — we find candidates wherever your routes are.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I see candidate status without asking your team?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>Yes. We provide real-time pipeline visibility and monthly KPI reporting as part of every engagement. You can see the status of background checks, drug tests, and physical exams without making a single call — and we proactively flag any issues before you need to ask.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What happens if a candidate fails their background check or drug test?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>We immediately re-enter the sourcing and screening pipeline to replace them — that's included in your engagement. Adverse action procedures are handled through the platform's built-in compliant process. You don't have to manage any part of that.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I pause and restart the service anytime?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>Yes. Month-to-month, no long-term commitment, pause anytime. When you restart, budget about 12 days to rebuild an active pipeline. Our most effective clients run the service continuously to keep a bench of candidates ready — so a driver quitting doesn't mean scrambling from zero.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--snow)">
+  <div class="wrap">
+    <span class="label dk" data-r>Values</span>
+    <h2 class="d" style="color:var(--text)" data-r data-d="1">What we stand for</h2>
+    <div class="values-grid">
+      <div class="val" data-r data-d="1"><div class="val-icon">🎯</div><div class="val-title">Precision</div><div class="val-text">The qualification process is compliance-critical. We don't cut corners, improvise steps, or skip documentation — ever.</div></div>
+      <div class="val" data-r data-d="2"><div class="val-icon">🤝</div><div class="val-title">Transparency</div><div class="val-text">You see every candidate's status in real time. No guessing, no chasing updates. What we commit to, we deliver.</div></div>
+      <div class="val" data-r data-d="3"><div class="val-icon">⚡</div><div class="val-title">Speed</div><div class="val-text">Routes don't wait for slow hiring. We're built to move fast — qualified, cleared candidates in days, not weeks.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-bg-img" style="background-image:url('https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=1800&q=85')"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-inner">
+    <h2>Let's talk about your routes.</h2>
+    <p>No commitments. Just an honest conversation about what you need.</p>
+    <a class="btn btn-blue" href="https://scheduler.mountainrecruiting.com" target="_blank">Book a Free Call</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-name"><svg width="28" height="21" viewBox="0 0 120 90"><use href="#mlogo"/></svg> Mountain Group</div>
+        <p>Driver recruiting specialists for carriers and contractors. From first contact to day one on the route — FCRA-compliant, transparent, results-driven.</p>
+      </div>
+      <div class="foot-col"><h4>Platform</h4><ul><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="compliance.html">Compliance</a></li></ul></div>
+      <div class="foot-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h4>Reach Us</h4><ul><li><a href="tel:+19089522733">+1 (908) 952-2733</a></li><li><a href="mailto:sales@mountainrecruiting.com">sales@mountainrecruiting.com</a></li><li><a href="https://scheduler.mountainrecruiting.com" target="_blank">Book a Strategy Call</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-legal">© 2026 Mountain Group LLC · Not affiliated with, endorsed by, or sponsored by Federal Express Corporation, FedEx Ground, or Amazon.</div>
+      <div class="foot-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+function updateNav() {
+  const nav = document.getElementById('nav');
+  nav.classList.remove('scrolled', 'light');
+  if (window.scrollY > 60) nav.classList.add('scrolled');
+}
+window.addEventListener('scroll', updateNav, {passive: true});
+updateNav();
+
+function toggleDrawer() {
+  document.getElementById('drawer').classList.toggle('open');
+  document.getElementById('ham').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('drawer').classList.contains('open') ? 'hidden' : '';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); revObs.unobserve(e.target); } });
+}, {threshold: .1, rootMargin: '0px 0px -36px 0px'});
+document.querySelectorAll('[data-r]').forEach(el => revObs.observe(el));
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  btn.closest('.faq-list').querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
