@@ -290,22 +290,33 @@ async function handleSubmit(btn) {
   const form = btn.closest('div[style]');
   const first = form.querySelector('[name="first_name"]').value.trim();
   const email = form.querySelector('[name="email"]').value.trim();
-  if (!first || !email) { alert('Please fill in your name and email.'); return; }
+  let errEl = form.querySelector('.form-error');
+  if (!errEl) {
+    errEl = document.createElement('p');
+    errEl.className = 'form-error';
+    errEl.style.cssText = 'color:#dc2626;font-size:.875rem;margin:8px 0 0;display:none;';
+    btn.parentNode.insertBefore(errEl, btn);
+  }
+  errEl.style.display = 'none';
+  if (!first || !email) {
+    errEl.textContent = 'Please fill in your name and email.';
+    errEl.style.display = 'block';
+    return;
+  }
   btn.textContent = 'Sending…';
   btn.disabled = true;
   try {
-    const res = await fetch('https://formspree.io/hiring@mountainrecruiting.com', {
+    const res = await fetch('https://dashboard.mountainrecruiting.com/api/contact', {
       method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         first_name: first,
         last_name:  form.querySelector('[name="last_name"]').value.trim(),
-        email:      email,
+        email,
         phone:      form.querySelector('[name="phone"]').value.trim(),
         stations:   form.querySelector('[name="stations"]').value,
         service:    form.querySelector('[name="service"]').value,
         message:    form.querySelector('[name="message"]').value.trim(),
-        _subject:   'New Contact Form Submission — Mountain Group'
       })
     });
     if (!res.ok) throw new Error();
@@ -314,7 +325,8 @@ async function handleSubmit(btn) {
   } catch {
     btn.textContent = 'Send Message';
     btn.disabled = false;
-    alert('Something went wrong. Please email us at hiring@mountainrecruiting.com');
+    errEl.textContent = 'Something went wrong. Please email us at hiring@mountainrecruiting.com';
+    errEl.style.display = 'block';
   }
 }
 </script>
