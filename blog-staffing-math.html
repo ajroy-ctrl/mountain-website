@@ -15,19 +15,7 @@ html{font-size:16px;scroll-behavior:smooth}
 body{font-family:var(--font);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;border:none;background:none;font-family:var(--font)}
-#nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(8,12,20,.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
-.nav-wrap{max-width:1400px;margin:0 auto;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav-logo{display:flex;align-items:center;gap:10px;color:var(--white);font-weight:800;font-size:1rem;letter-spacing:-.02em;flex-shrink:0}
-.nav-logo svg{color:var(--white);flex-shrink:0}
-.nav-links{display:flex;align-items:center;gap:2px}
-.nav-links button{font-size:.825rem;font-weight:600;color:rgba(255,255,255,.82);padding:8px 13px;border-radius:8px;transition:.15s;font-family:var(--font)}
-.nav-links button:hover{color:var(--white);background:rgba(255,255,255,.09)}
-.nav-links button.on{color:var(--white);background:rgba(255,255,255,.1)}
-.nav-right{display:flex;align-items:center;gap:12px}
-.nav-tel{font-size:.8125rem;font-weight:600;color:rgba(255,255,255,.65);transition:.15s}
-.nav-tel:hover{color:var(--white)}
-.nav-cta{background:var(--blue);color:var(--white);font-weight:700;font-size:.8125rem;padding:9px 20px;border-radius:8px;transition:.15s;white-space:nowrap;font-family:var(--font)}
-.nav-cta:hover{background:var(--blue-d)}
+
 .wrap{max-width:var(--max);margin:0 auto;padding:0 48px}
 .post-wrap{max-width:760px;margin:0 auto;padding:0 48px}
 .post-hero{background:var(--dark);padding:120px 0 72px}
@@ -66,29 +54,10 @@ footer{background:#04080F;color:rgba(255,255,255,.58);padding:64px 0 36px}
 .foot-links a{font-size:.76rem;color:rgba(255,255,255,.55);transition:.15s}
 .foot-links a:hover{color:var(--white)}
 @media(max-width:1024px){.foot-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.foot-grid{grid-template-columns:1fr}.nav-wrap{padding:0 20px}.nav-links,.nav-right{display:none}.post-wrap{padding:0 24px}.wrap{padding:0 24px}}
 </style>
 </head>
 <body>
-<svg style="display:none"><symbol id="mlogo" viewBox="0 0 120 90"><polyline points="14,76 36,14 60,52 84,14 106,76" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol></svg>
-<div id="nav">
-  <div class="nav-wrap">
-    <a href="index.html" class="nav-logo"><svg width="28" height="21" viewBox="0 0 120 90"><use href="#mlogo"/></svg> Mountain Group</a>
-    <div class="nav-links">
-      <button onclick="location.href='index.html'">Home</button>
-      <button onclick="location.href='how-it-works.html'">How It Works</button>
-      <button onclick="location.href='compliance.html'">Compliance</button>
-      <button onclick="location.href='pricing.html'">Pricing</button>
-      <button onclick="location.href='about.html'">About</button>
-      <button onclick="location.href='contact.html'">Contact</button>
-      <button onclick="location.href='blog.html'" class="on">Blog</button>
-    </div>
-    <div class="nav-right">
-      <a class="nav-tel" href="mountain_tips.html">Weekly Tips →</a>
-      <a class="nav-cta" href="https://scheduler.mountainrecruiting.com" target="_blank">Get Started</a>
-    </div>
-  </div>
-</div>
+<script src="header.js"></script>
 
 <div class="post-hero">
   <div class="post-wrap">

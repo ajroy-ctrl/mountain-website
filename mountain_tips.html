@@ -22,11 +22,6 @@ a{color:inherit;text-decoration:none}
 button{cursor:pointer;border:none;font-family:var(--font)}
 
 /* NAV */
-nav{background:var(--dark);padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.nav-logo{display:flex;align-items:center;gap:10px;color:var(--white);font-weight:800;font-size:1rem;letter-spacing:-.02em}
-.nav-logo svg{color:var(--white)}
-.nav-cta{background:var(--blue);color:var(--white);font-weight:700;font-size:.8125rem;padding:9px 20px;border-radius:8px;transition:.15s;white-space:nowrap;font-family:var(--font)}
-.nav-cta:hover{background:var(--blue-d)}
 
 /* LAYOUT */
 main{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:72px 24px 80px}
@@ -83,22 +78,9 @@ footer{background:var(--dark);padding:24px 48px;display:flex;align-items:center;
 </style>
 </head>
 <body>
+<script src="header.js"></script>
 
-<svg style="display:none">
-  <symbol id="mlogo" viewBox="0 0 120 90">
-    <polyline points="14,76 36,14 60,52 84,14 106,76" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  </symbol>
-</svg>
-
-<nav>
-  <a href="/" class="nav-logo">
-    <svg width="28" height="21" viewBox="0 0 120 90"><use href="#mlogo"/></svg>
-    Mountain Group
-  </a>
-  <a class="nav-cta" href="https://scheduler.mountainrecruiting.com/" target="_blank">Book a Free Consultation</a>
-</nav>
-
-<main>
+<main style="padding-top:116px">
   <div class="card">
     <span class="badge">Free Weekly Newsletter</span>
     <h1>Get Weekly Driver Recruiting Tips</h1>
@@ -204,6 +186,7 @@ document.getElementById('tipsForm').addEventListener('submit', async function(e)
     alert('Something went wrong. Please email us directly at hiring@mountainrecruiting.com');
   }
 });
+
 </script>
 </body>
 </html>

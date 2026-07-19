@@ -65,7 +65,7 @@ h3.wh{color:var(--white)}
 .muted{color:var(--text3)}
 
 /* ── BUTTONS ── */
-.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9375rem;font-family:var(--font);padding:14px 28px;border-radius:var(--r);transition:all .18s;cursor:pointer;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9375rem;font-family:var(--font);padding:14px 28px;border-radius:var(--r);transition:all .18s;cursor:pointer;white-space:nowrap;position:relative;overflow:hidden}
 .btn-blue{background:var(--blue);color:var(--white)}
 .btn-blue:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 8px 28px rgba(29,95,232,.38)}
 .btn-wh{border:1.5px solid rgba(255,255,255,.28);color:var(--white)}
@@ -74,51 +74,20 @@ h3.wh{color:var(--white)}
 .btn-out:hover{border-color:#aab4c2;background:var(--snow)}
 .btn-sm{font-size:.8125rem;padding:10px 20px}
 
-/* ── NAV ── */
-#nav{position:fixed;top:0;left:0;right:0;z-index:500;transition:background .3s,box-shadow .3s;background:linear-gradient(to bottom,rgba(8,12,20,.72) 0%,transparent 100%)}
-#nav.scrolled{background:rgba(8,12,20,.96)!important;backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
-#nav.light{background:rgba(255,255,255,.97)!important;backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border)}
-.nav-wrap{max-width:1400px;margin:0 auto;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
-.nav-logo svg{flex-shrink:0;color:var(--white);transition:color .2s}
-#nav.light .nav-logo svg{color:var(--text)}
-.foot-name svg{color:var(--white)}
-.logo-name{font-size:1.0625rem;font-weight:800;letter-spacing:-.02em;color:var(--white);transition:.2s}
-#nav.light .logo-name{color:var(--text)}
-.nav-links{display:flex;align-items:center;gap:2px}
-.nav-links button{font-size:.825rem;font-weight:600;color:rgba(255,255,255,.82);padding:8px 13px;border-radius:8px;transition:.15s;font-family:var(--font)}
-.nav-links button:hover{color:var(--white);background:rgba(255,255,255,.09)}
-.nav-links button.on{color:var(--white)}
-#nav.light .nav-links button{color:var(--text3)}
-#nav.light .nav-links button:hover{color:var(--text);background:var(--snow)}
-#nav.light .nav-links button.on{color:var(--text)}
-.nav-right{display:flex;align-items:center;gap:12px}
-.nav-tel{font-size:.8125rem;font-weight:600;color:rgba(255,255,255,.65);transition:.15s}
-.nav-tel:hover{color:var(--white)}
-#nav.light .nav-tel{color:var(--text3)}
-#nav.light .nav-tel:hover{color:var(--text)}
-.nav-cta{background:var(--blue);color:var(--white);font-weight:700;font-size:.8125rem;padding:9px 20px;border-radius:8px;transition:.15s;white-space:nowrap;font-family:var(--font)}
-.nav-cta:hover{background:var(--blue-d);transform:translateY(-1px)}
-.ham{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer}
-.ham span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:.25s}
-.ham span:nth-child(2){width:15px}
-#nav.light .ham span{background:var(--text)}
-.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.ham.open span:nth-child(2){opacity:0;transform:translateX(8px)}
-.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-
-/* ── DRAWER ── */
-.drawer{position:fixed;inset:0;z-index:499;pointer-events:none}
-.drawer-bg{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;transition:opacity .3s;backdrop-filter:blur(4px)}
-.drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(300px,88vw);background:var(--dark);transform:translateX(100%);transition:transform .35s cubic-bezier(.25,.46,.45,.94);padding:80px 24px 40px;display:flex;flex-direction:column;gap:4px}
-.drawer.open{pointer-events:all}
-.drawer.open .drawer-bg{opacity:1}
-.drawer.open .drawer-panel{transform:translateX(0)}
-.d-link{text-align:left;padding:13px 16px;font-size:.9375rem;font-weight:600;color:rgba(255,255,255,.7);border-radius:8px;width:100%;display:block;font-family:var(--font);cursor:pointer;transition:.15s;border:none;background:none}
-.d-link:hover{background:rgba(255,255,255,.06);color:var(--white)}
-.d-div{height:1px;background:rgba(255,255,255,.07);margin:8px 0}
-.d-cta{background:var(--blue);color:var(--white);text-align:center;padding:14px;border-radius:8px;font-weight:700;font-size:.9375rem;display:block;margin-top:10px;font-family:var(--font);transition:.15s}
-.d-cta:hover{background:var(--blue-d)}
+/* ── HERO CONSULT LABEL ── */
+.hero-consult-label{font-size:1.25rem;font-weight:800;color:var(--white);margin-bottom:18px;letter-spacing:-.02em;line-height:1.2}
+.hero-consult-label em{color:#f59e0b;font-style:normal}
+.hero-cta-group{display:flex;flex-direction:column;margin-bottom:40px;align-self:flex-start}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-actions .btn{padding:17px 36px;font-size:1rem;border-radius:10px;gap:10px}
+.hero-actions .btn-arrow{opacity:.65;transition:transform .18s,opacity .18s}
+.hero-actions .btn:hover .btn-arrow{opacity:1;transform:translateX(4px)}
+.btn-lh{background:rgba(255,255,255,0.09);border:1.5px solid rgba(255,255,255,0.26);color:var(--white);backdrop-filter:blur(14px) saturate(140%);box-shadow:0 4px 16px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.2),inset 0 -1px 0 rgba(0,0,0,0.1)}
+.btn-lh:hover{background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.5);transform:translateY(-2px)}
+/* Hero CTA — liquid glass specular on both buttons */
+.hero-actions .btn::before{content:'';position:absolute;top:0;left:0;right:0;height:52%;background:linear-gradient(to bottom,rgba(255,255,255,0.18),transparent);border-radius:inherit;pointer-events:none}
+.hero-actions .btn-blue{background:rgba(29,95,232,0.82);border:1px solid rgba(80,130,255,0.55);box-shadow:0 4px 20px rgba(29,95,232,0.45),inset 0 1px 0 rgba(255,255,255,0.28),inset 0 -1px 0 rgba(0,0,0,0.15);backdrop-filter:blur(14px) saturate(140%)}
+.hero-actions .btn-blue:hover{background:rgba(29,95,232,0.96);transform:translateY(-2px);box-shadow:0 8px 32px rgba(29,95,232,0.55),inset 0 1px 0 rgba(255,255,255,0.3)}
 
 /* ── PAGE SHELL ── */
 .page{display:none;padding-top:68px}
@@ -135,7 +104,6 @@ h3.wh{color:var(--white)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 .hero-title{font-size:clamp(3.2rem,6vw,5.6rem);font-weight:900;line-height:.98;letter-spacing:-.04em;color:var(--white);margin-bottom:20px;max-width:840px}
 .hero-sub{font-size:1.075rem;line-height:1.68;color:rgba(255,255,255,.62);max-width:540px;margin-bottom:28px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
 .hero-stats{display:flex;gap:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,.1);flex-wrap:wrap}
 .hs-n{font-size:2.5rem;font-weight:900;color:var(--white);line-height:1;letter-spacing:-.03em}
 .hs-l{font-size:.75rem;color:rgba(255,255,255,.45);margin-top:5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
@@ -398,7 +366,6 @@ footer{background:#04080F;color:rgba(255,255,255,.58);padding:64px 0 36px}
 }
 @media(max-width:768px){
   .wrap{padding:0 20px}.sec{padding:72px 0}
-  .nav-wrap{padding:0 20px}.nav-links,.nav-right{display:none}.ham{display:flex}
   .hero{grid-template-columns:1fr;min-height:auto}
   .hero-left{padding:100px 20px 60px}
   .hero-right{height:300px}
@@ -423,57 +390,9 @@ footer{background:#04080F;color:rgba(255,255,255,.58);padding:64px 0 36px}
 </style>
 </head>
 <body>
+<script src="header.js"></script>
 
-<!-- SVG DEFS -->
-<svg style="display:none">
-  <symbol id="mlogo" viewBox="0 0 120 90">
-    <polyline points="14,76 36,14 60,52 84,14 106,76" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  </symbol>
-</svg>
-
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-wrap">
-    <a href="index.html" class="nav-logo">
-      <svg width="36" height="27" viewBox="0 0 120 90"><use href="#mlogo"/></svg>
-      <span class="logo-name">Mountain Group</span>
-    </a>
-    <div class="nav-links">
-      <button onclick="location.href='index.html'" id="nb-home" class="on">Home</button>
-      <button onclick="location.href='how-it-works.html'" id="nb-process">How It Works</button>
-      <button onclick="location.href='compliance.html'" id="nb-compliance">Compliance</button>
-      <button onclick="location.href='pricing.html'" id="nb-pricing">Pricing</button>
-      <button onclick="location.href='about.html'" id="nb-about">About</button>
-      <button onclick="location.href='contact.html'" id="nb-contact">Contact</button>
-      <button onclick="location.href='blog.html'" id="nb-blog">Blog</button>
-    </div>
-    <div class="nav-right">
-      <a class="nav-tel" href="mountain_tips.html">Weekly Tips →</a>
-      <a class="nav-cta" href="https://scheduler.mountainrecruiting.com" target="_blank">Get Started</a>
-    </div>
-    <div class="ham" id="ham" onclick="toggleDrawer()">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
-</nav>
-
-<!-- DRAWER -->
-<div class="drawer" id="drawer">
-  <div class="drawer-bg" onclick="closeDrawer()"></div>
-  <div class="drawer-panel">
-    <a class="d-link" href="index.html">Home</a>
-    <a class="d-link" href="how-it-works.html">How It Works</a>
-    <a class="d-link" href="compliance.html">Compliance</a>
-    <a class="d-link" href="pricing.html">Pricing</a>
-    <a class="d-link" href="about.html">About</a>
-    <a class="d-link" href="contact.html">Contact</a>
-    <div class="d-div"></div>
-    <a class="d-link" href="tel:+19089522733" style="font-size:.875rem;color:rgba(255,255,255,.45)">+1 (908) 952-2733</a>
-    <a class="d-cta" href="https://scheduler.mountainrecruiting.com" target="_blank">Book a Free Consultation</a>
-  </div>
-</div>
-
-<main style="padding-top:68px">
+<main id="mg-main" style="padding-top:116px">
 
 <!-- HERO -->
 <section class="hero">
@@ -481,9 +400,12 @@ footer{background:#04080F;color:rgba(255,255,255,.58);padding:64px 0 36px}
     <div class="hero-pill">Your Recruiting Partner</div>
     <h1 class="hero-title">We Recruit.<br>You Operate.</h1>
     <p class="hero-sub">Mountain Group runs your complete driver qualification pipeline — sourcing, screening, background checks, drug tests, and physicals. You hire; we handle everything else.</p>
-    <div class="hero-actions">
-      <a class="btn btn-blue" href="https://scheduler.mountainrecruiting.com/" target="_blank">Book a Free Consultation</a>
-      <a class="btn btn-wh" href="how-it-works.html">See How It Works</a>
+    <div class="hero-cta-group">
+      <div class="hero-consult-label">Book a <em>Free</em> Consultation</div>
+      <div class="hero-actions">
+        <a class="btn btn-blue" href="https://scheduler.mountainrecruiting.com/" target="_blank">P&amp;D Routes <span class="btn-arrow">→</span></a>
+        <a class="btn btn-lh" href="https://scheduler.mountainrecruiting.com/" target="_blank">Linehaul <span class="btn-arrow">→</span></a>
+      </div>
     </div>
     <div class="hero-stats">
       <div><div class="hs-n" data-count="500">0</div><div class="hs-l">Clients Served</div></div>
@@ -746,24 +668,6 @@ footer{background:#04080F;color:rgba(255,255,255,.58);padding:64px 0 36px}
 </main>
 
 <script>
-function updateNav() {
-  const nav = document.getElementById('nav');
-  nav.classList.remove('scrolled', 'light');
-  if (window.scrollY > 60) nav.classList.add('scrolled');
-}
-window.addEventListener('scroll', updateNav, {passive: true});
-updateNav();
-
-function toggleDrawer() {
-  document.getElementById('drawer').classList.toggle('open');
-  document.getElementById('ham').classList.toggle('open');
-  document.body.style.overflow = document.getElementById('drawer').classList.contains('open') ? 'hidden' : '';
-}
-function closeDrawer() {
-  document.getElementById('drawer').classList.remove('open');
-  document.getElementById('ham').classList.remove('open');
-  document.body.style.overflow = '';
-}
 
 const revObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); revObs.unobserve(e.target); } });

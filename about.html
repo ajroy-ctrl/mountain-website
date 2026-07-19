@@ -63,50 +63,7 @@ h2.d{font-size:clamp(2rem,4vw,3.25rem);font-weight:800;line-height:1.08;letter-s
 .btn-out:hover{border-color:#aab4c2;background:var(--snow)}
 .btn-sm{font-size:.8125rem;padding:10px 20px}
 
-#nav{position:fixed;top:0;left:0;right:0;z-index:500;transition:background .3s,box-shadow .3s;background:linear-gradient(to bottom,rgba(8,12,20,.72) 0%,transparent 100%)}
-#nav.scrolled{background:rgba(8,12,20,.96)!important;backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
-#nav.light{background:rgba(255,255,255,.97)!important;backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border)}
-.nav-wrap{max-width:1400px;margin:0 auto;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
-.nav-logo svg{flex-shrink:0;color:var(--white);transition:color .2s}
-#nav.light .nav-logo svg{color:var(--text)}
-.logo-name{font-size:1.0625rem;font-weight:800;letter-spacing:-.02em;color:var(--white);transition:.2s}
-#nav.light .logo-name{color:var(--text)}
-.nav-links{display:flex;align-items:center;gap:2px}
-.nav-links button{font-size:.825rem;font-weight:600;color:rgba(255,255,255,.65);padding:8px 13px;border-radius:8px;transition:.15s;font-family:var(--font)}
-.nav-links button:hover{color:var(--white);background:rgba(255,255,255,.09)}
-.nav-links button.on{color:var(--white)}
-#nav.light .nav-links button{color:var(--text3)}
-#nav.light .nav-links button:hover{color:var(--text);background:var(--snow)}
-#nav.light .nav-links button.on{color:var(--text)}
-.nav-right{display:flex;align-items:center;gap:12px}
-.nav-tel{font-size:.8125rem;font-weight:600;color:rgba(255,255,255,.45);transition:.15s}
-.nav-tel:hover{color:var(--white)}
-#nav.light .nav-tel{color:var(--text3)}
-#nav.light .nav-tel:hover{color:var(--text)}
-.nav-cta{background:var(--blue);color:var(--white);font-weight:700;font-size:.8125rem;padding:9px 20px;border-radius:8px;transition:.15s;white-space:nowrap;font-family:var(--font)}
-.nav-cta:hover{background:var(--blue-d);transform:translateY(-1px)}
-.ham{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer}
-.ham span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:.25s}
-.ham span:nth-child(2){width:15px}
-#nav.light .ham span{background:var(--text)}
-.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.ham.open span:nth-child(2){opacity:0;transform:translateX(8px)}
-.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-
-.drawer{position:fixed;inset:0;z-index:499;pointer-events:none}
-.drawer-bg{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;transition:opacity .3s;backdrop-filter:blur(4px)}
-.drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(300px,88vw);background:var(--dark);transform:translateX(100%);transition:transform .35s cubic-bezier(.25,.46,.45,.94);padding:80px 24px 40px;display:flex;flex-direction:column;gap:4px}
-.drawer.open{pointer-events:all}
-.drawer.open .drawer-bg{opacity:1}
-.drawer.open .drawer-panel{transform:translateX(0)}
-.d-link{text-align:left;padding:13px 16px;font-size:.9375rem;font-weight:600;color:rgba(255,255,255,.7);border-radius:8px;width:100%;display:block;font-family:var(--font);cursor:pointer;transition:.15s;border:none;background:none}
-.d-link:hover{background:rgba(255,255,255,.06);color:var(--white)}
-.d-div{height:1px;background:rgba(255,255,255,.07);margin:8px 0}
-.d-cta{background:var(--blue);color:var(--white);text-align:center;padding:14px;border-radius:8px;font-weight:700;font-size:.9375rem;display:block;margin-top:10px;font-family:var(--font);transition:.15s}
-.d-cta:hover{background:var(--blue-d)}
-
-.page{display:none;padding-top:68px}
+.page{display:none;padding-top:116px}
 .page.active{display:block}
 
 .feat-split{display:grid;grid-template-columns:1fr 1fr;min-height:580px}
@@ -154,7 +111,6 @@ footer{background:#04080F;color:rgba(255,255,255,.58);padding:64px 0 36px}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.05)}
 .foot-brand p{font-size:.875rem;line-height:1.72;max-width:280px;margin-top:12px}
 .foot-name{font-weight:800;font-size:1rem;color:var(--white);display:flex;align-items:center;gap:10px}
-.foot-name svg{color:var(--white)}
 .foot-col h4{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:18px}
 .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
 .foot-col li button,.foot-col li a{font-size:.875rem;color:rgba(255,255,255,.62);background:none;border:none;cursor:pointer;font-family:var(--font);transition:.15s;padding:0;text-align:left}
@@ -173,7 +129,6 @@ footer{background:#04080F;color:rgba(255,255,255,.58);padding:64px 0 36px}
 }
 @media(max-width:768px){
   .wrap{padding:0 20px}.sec{padding:72px 0}
-  .nav-wrap{padding:0 20px}.nav-links,.nav-right{display:none}.ham{display:flex}
   .values-grid{grid-template-columns:1fr}
   .pg-hero-content{padding:48px 20px}
 }
@@ -181,55 +136,9 @@ footer{background:#04080F;color:rgba(255,255,255,.58);padding:64px 0 36px}
 </style>
 </head>
 <body>
+<script src="header.js"></script>
 
-<svg style="display:none">
-  <symbol id="mlogo" viewBox="0 0 120 90">
-    <polyline points="14,76 36,14 60,52 84,14 106,76" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  </symbol>
-</svg>
-
-<nav id="nav">
-  <div class="nav-wrap">
-    <a href="index.html" class="nav-logo">
-      <svg width="36" height="27" viewBox="0 0 120 90"><use href="#mlogo"/></svg>
-      <span class="logo-name">Mountain Group</span>
-    </a>
-    <div class="nav-links">
-      <button onclick="location.href='index.html'" id="nb-home">Home</button>
-      <button onclick="location.href='how-it-works.html'" id="nb-process">How It Works</button>
-      <button onclick="location.href='compliance.html'" id="nb-compliance">Compliance</button>
-      <button onclick="location.href='pricing.html'" id="nb-pricing">Pricing</button>
-      <button onclick="location.href='about.html'" id="nb-about" class="on">About</button>
-      <button onclick="location.href='contact.html'" id="nb-contact">Contact</button>
-      <button onclick="location.href='blog.html'" id="nb-blog">Blog</button>
-    </div>
-    <div class="nav-right">
-      <a class="nav-tel" href="mountain_tips.html">Weekly Tips →</a>
-      <a class="nav-cta" href="https://scheduler.mountainrecruiting.com" target="_blank">Get Started</a>
-    </div>
-    <div class="ham" id="ham" onclick="toggleDrawer()">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
-</nav>
-
-<div class="drawer" id="drawer">
-  <div class="drawer-bg" onclick="closeDrawer()"></div>
-  <div class="drawer-panel">
-    <a class="d-link" href="index.html">Home</a>
-    <a class="d-link" href="how-it-works.html">How It Works</a>
-    <a class="d-link" href="compliance.html">Compliance</a>
-    <a class="d-link" href="pricing.html">Pricing</a>
-    <a class="d-link" href="about.html">About</a>
-    <a class="d-link" href="contact.html">Contact</a>
-    <a class="d-link" href="blog.html">Blog</a>
-    <div class="d-div"></div>
-    <a class="d-link" href="tel:+19089522733" style="font-size:.875rem;color:rgba(255,255,255,.45)">+1 (908) 952-2733</a>
-    <a class="d-cta" href="https://scheduler.mountainrecruiting.com" target="_blank">Book a Free Consultation</a>
-  </div>
-</div>
-
-<main style="padding-top:68px">
+<main style="padding-top:116px">
 
 <div class="pg-hero">
   <div class="pg-hero-img" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1800&q=85');opacity:.3"></div>
@@ -327,24 +236,6 @@ footer{background:#04080F;color:rgba(255,255,255,.58);padding:64px 0 36px}
 </main>
 
 <script>
-function updateNav() {
-  const nav = document.getElementById('nav');
-  nav.classList.remove('scrolled', 'light');
-  if (window.scrollY > 60) nav.classList.add('scrolled');
-}
-window.addEventListener('scroll', updateNav, {passive: true});
-updateNav();
-
-function toggleDrawer() {
-  document.getElementById('drawer').classList.toggle('open');
-  document.getElementById('ham').classList.toggle('open');
-  document.body.style.overflow = document.getElementById('drawer').classList.contains('open') ? 'hidden' : '';
-}
-function closeDrawer() {
-  document.getElementById('drawer').classList.remove('open');
-  document.getElementById('ham').classList.remove('open');
-  document.body.style.overflow = '';
-}
 
 const revObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); revObs.unobserve(e.target); } });
@@ -357,6 +248,7 @@ function toggleFaq(btn) {
   btn.closest('.faq-list').querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
   if (!wasOpen) item.classList.add('open');
 }
+
 </script>
 </body>
 </html>
