@@ -192,14 +192,17 @@
     r.style.cssText = 'display:flex;align-items:center;gap:8px;flex-wrap:wrap';
     r.innerHTML = '<span style="font-size:.78rem;color:rgba(255,255,255,.4)">Loading…</span>';
     try {
-      var results = (await Promise.all([
+      var responses = await Promise.all([
         _dbFetch,
         fetch('https://dashboard.mountainrecruiting.com/api/public/market-lead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email, stations: _dbStations })
-        }).catch(function () {})
-      ]))[0];
+        }).then(function (res) { return res.json(); }).catch(function () { return {}; })
+      ]);
+      var results = responses[0];
+      var leadResp = responses[1];
+      var proposalUrl = leadResp && leadResp.proposal_url ? leadResp.proposal_url : null;
       var html = '';
       results.forEach(function (d, i) {
         if (!d.found) {
@@ -209,7 +212,8 @@
           html += '<span style="font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:4px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;' + sty + '">' + d.station + ' · ' + (d.difficulty || 'Unknown') + '</span>';
         }
       });
-      html += '<a href="https://scheduler.mountainrecruiting.com" target="_blank" style="font-size:.78rem;color:#93B8FF;font-weight:700;text-decoration:none;white-space:nowrap">Get a proposal →</a>';
+      var analysisHref = proposalUrl || 'https://scheduler.mountainrecruiting.com';
+      html += '<a href="' + analysisHref + '" target="_blank" style="font-size:.78rem;color:#93B8FF;font-weight:700;text-decoration:none;white-space:nowrap">View Analysis →</a>';
       r.innerHTML = html;
     } catch (e) {
       r.innerHTML = '<span style="font-size:.78rem;color:rgba(255,255,255,.4)">Error — try again</span>';
