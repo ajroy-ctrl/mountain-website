@@ -16,6 +16,7 @@
     '#db-input::placeholder,#db-email::placeholder{color:rgba(255,255,255,.45)}',
     '.db-btn{background:#1D5FE8;color:#fff;font-family:\'Outfit\',system-ui,sans-serif;font-size:.8rem;font-weight:700;padding:5px 14px;border-radius:6px;cursor:pointer;border:none;transition:.15s;white-space:nowrap}',
     '.db-btn:hover{background:#1549C0}',
+    '.db-btn:disabled{background:#334155;cursor:not-allowed;opacity:.6}',
     '#db-result{display:none;align-items:center;gap:8px;flex-shrink:0}',
     '.db-close{position:absolute;right:20px;color:rgba(255,255,255,.5);font-size:1.1rem;line-height:1;cursor:pointer;padding:4px;background:none;border:none;font-family:\'Outfit\',system-ui,sans-serif;transition:.15s}',
     '.db-close:hover{color:rgba(255,255,255,.9)}',
@@ -241,6 +242,23 @@
 
   window.addEventListener('scroll', updateNav, { passive: true });
   updateNav();
+
+  // ── Proposal limit check ─────────────────────────────────────────────────
+  fetch('https://dashboard.mountainrecruiting.com/api/public/proposal-status')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (data.disabled) {
+        var checkBtn = document.getElementById('db-check-btn');
+        var submitBtn = document.getElementById('db-submit-btn');
+        var input = document.getElementById('db-input');
+        checkBtn.disabled = true;
+        checkBtn.textContent = 'Unavailable Today';
+        submitBtn.disabled = true;
+        input.disabled = true;
+        input.placeholder = 'Check back tomorrow';
+      }
+    })
+    .catch(function () {}); // fail open — don't disable if request errors
 
   // Expose for any remaining inline handlers in older pages
   window.closeDiffBanner = closeDiffBanner;
